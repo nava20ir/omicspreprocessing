@@ -1,0 +1,1151 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" />
+
+    <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+        <title>omicspreprocessing package - omicspreprocessing 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">omicspreprocessing 0.1.0 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">omicspreprocessing 0.1.0 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/omicspreprocessing.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="omicspreprocessing-package">
+<h1>omicspreprocessing package<a class="headerlink" href="#omicspreprocessing-package" title="Link to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-omicspreprocessing.core">
+<span id="omicspreprocessing-core-module"></span><h2>omicspreprocessing.core module<a class="headerlink" href="#module-omicspreprocessing.core" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="omicspreprocessing.core.ParallelComputing">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">ParallelComputing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_to_proceed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_cores</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#omicspreprocessing.core.ParallelComputing" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="rubric">Methods</p>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#omicspreprocessing.core.ParallelComputing.get_result" title="omicspreprocessing.core.ParallelComputing.get_result"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_result</span></code></a>()</p></td>
+<td><p>Get the result list after parallel processing.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#omicspreprocessing.core.ParallelComputing.run_in_parallel" title="omicspreprocessing.core.ParallelComputing.run_in_parallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run_in_parallel</span></code></a>()</p></td>
+<td><p>Run the function in parallel over the list of items.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#omicspreprocessing.core.ParallelComputing.set_func" title="omicspreprocessing.core.ParallelComputing.set_func"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_func</span></code></a>(func)</p></td>
+<td><p>Set the function to apply in parallel.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#omicspreprocessing.core.ParallelComputing.set_list" title="omicspreprocessing.core.ParallelComputing.set_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_list</span></code></a>(newlist)</p></td>
+<td><p>Set the list of items to process.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#omicspreprocessing.core.ParallelComputing.set_num_cores" title="omicspreprocessing.core.ParallelComputing.set_num_cores"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_num_cores</span></code></a>(num_cores)</p></td>
+<td><p>Set the number of parallel processes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#omicspreprocessing.core.ParallelComputing.split_df_to_list_by_group" title="omicspreprocessing.core.ParallelComputing.split_df_to_list_by_group"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split_df_to_list_by_group</span></code></a>(df, group_name)</p></td>
+<td><p>Split a DataFrame into a list of DataFrames grouped by a column.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="omicspreprocessing.core.ParallelComputing.get_result">
+<span class="sig-name descname"><span class="pre">get_result</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span></span></span><a class="headerlink" href="#omicspreprocessing.core.ParallelComputing.get_result" title="Link to this definition">¶</a></dt>
+<dd><p>Get the result list after parallel processing.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="omicspreprocessing.core.ParallelComputing.run_in_parallel">
+<span class="sig-name descname"><span class="pre">run_in_parallel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#omicspreprocessing.core.ParallelComputing.run_in_parallel" title="Link to this definition">¶</a></dt>
+<dd><p>Run the function in parallel over the list of items.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="omicspreprocessing.core.ParallelComputing.set_func">
+<span class="sig-name descname"><span class="pre">set_func</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#omicspreprocessing.core.ParallelComputing.set_func" title="Link to this definition">¶</a></dt>
+<dd><p>Set the function to apply in parallel.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="omicspreprocessing.core.ParallelComputing.set_list">
+<span class="sig-name descname"><span class="pre">set_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">newlist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#omicspreprocessing.core.ParallelComputing.set_list" title="Link to this definition">¶</a></dt>
+<dd><p>Set the list of items to process.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="omicspreprocessing.core.ParallelComputing.set_num_cores">
+<span class="sig-name descname"><span class="pre">set_num_cores</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_cores</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#omicspreprocessing.core.ParallelComputing.set_num_cores" title="Link to this definition">¶</a></dt>
+<dd><p>Set the number of parallel processes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="omicspreprocessing.core.ParallelComputing.split_df_to_list_by_group">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">split_df_to_list_by_group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">DataFrame</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#omicspreprocessing.core.ParallelComputing.split_df_to_list_by_group" title="Link to this definition">¶</a></dt>
+<dd><p>Split a DataFrame into a list of DataFrames grouped by a column.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.ROC_curve_analysis">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">ROC_curve_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scores</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curve_title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#omicspreprocessing.core.ROC_curve_analysis" title="Link to this definition">¶</a></dt>
+<dd><p>Compute and optionally plot the ROC curve for binary classification.</p>
+<section id="parameters">
+<h3>Parameters:<a class="headerlink" href="#parameters" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>labels<span class="classifier">np.ndarray</span></dt><dd><p>Array of true binary labels (0 or 1), where 1 indicates the positive class.</p>
+</dd>
+<dt>scores<span class="classifier">np.ndarray</span></dt><dd><p>Array of predicted scores or probabilities for the positive class.
+Higher scores indicate higher likelihood of positive class.</p>
+</dd>
+<dt>curve_title<span class="classifier">str</span></dt><dd><p>Title or label for the ROC curve plot.</p>
+</dd>
+<dt>plot<span class="classifier">bool, optional</span></dt><dd><p>Whether to plot the ROC curve. Default is True.</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h3>Returns:<a class="headerlink" href="#returns" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>float</dt><dd><p>Area Under the Curve (AUC) of the ROC curve.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.anova_test">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">anova_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputDF</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protein_peptide</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metaDataColumn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#omicspreprocessing.core.anova_test" title="Link to this definition">¶</a></dt>
+<dd><p>Perform one-way ANOVA tests for each protein/peptide across groups defined in metadata.</p>
+<section id="id1">
+<h3>Parameters:<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>inputDF<span class="classifier">pd.DataFrame</span></dt><dd><p>DataFrame where rows are samples/patients and columns are proteins/peptides.</p>
+</dd>
+<dt>protein_peptide<span class="classifier">List[str]</span></dt><dd><p>List of protein/peptide column names to perform ANOVA on.</p>
+</dd>
+<dt>metaDataColumn<span class="classifier">str</span></dt><dd><p>Name of the metadata column in <cite>inputDF</cite> that contains group labels for ANOVA.</p>
+</dd>
+</dl>
+</section>
+<section id="id2">
+<h3>Returns:<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>pd.DataFrame</dt><dd><p>DataFrame with columns:
+- ‘F_tests’: ANOVA F-statistics per protein/peptide,
+- ‘p_values’: Corresponding p-values,
+- ‘means_pergroup’: List of group means per protein/peptide,
+- ‘Majority protein IDs’: Protein/peptide names,
+- ‘fdr’: FDR-adjusted p-values using Benjamini-Hochberg correction.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.calculate_median_z_scores">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">calculate_median_z_scores</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#omicspreprocessing.core.calculate_median_z_scores" title="Link to this definition">¶</a></dt>
+<dd><p>Calculate column-wise median-centered z-scores for a DataFrame.</p>
+<p>For each column, the z-score is computed by subtracting the column median and dividing
+by the column standard deviation, ignoring NaNs.</p>
+<section id="id3">
+<h3>Parameters:<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>df<span class="classifier">pd.DataFrame</span></dt><dd><p>Input DataFrame with numerical values. NaNs and infinite values will be handled.</p>
+</dd>
+</dl>
+</section>
+<section id="id4">
+<h3>Returns:<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>pd.DataFrame</dt><dd><p>DataFrame of the same shape with median-centered z-scores computed column-wise.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.check_path_exist">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">check_path_exist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#omicspreprocessing.core.check_path_exist" title="Link to this definition">¶</a></dt>
+<dd><p>Decorator to check if a file path exists before attempting to open it.</p>
+<p>If the file exists, the decorated function is called with the given arguments,
+and its result (usually a DataFrame) is returned. If the file does not exist,
+a message is printed and <cite>None</cite> is returned. If the file exists but an error
+occurs during reading, an error message is printed and a list with a string
+error message is returned.</p>
+<p>This decorator is intended for functions that take a file path as their first argument
+and attempt to read it (e.g., with pandas).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.compare_two_distributions">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">compare_two_distributions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#omicspreprocessing.core.compare_two_distributions" title="Link to this definition">¶</a></dt>
+<dd><p>Compare two empirical distributions using the two-sample Kolmogorov-Smirnov (KS) test.</p>
+<p>This function tests whether the two input datasets are drawn from the same continuous distribution.
+It prints the KS test statistic, the p-value, and an interpretation based on a significance
+level of 0.05.</p>
+<section id="id5">
+<h3>Parameters:<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>data1<span class="classifier">array-like</span></dt><dd><p>The first sample distribution (e.g., list, NumPy array, or pandas Series).</p>
+</dd>
+<dt>data2<span class="classifier">array-like</span></dt><dd><p>The second sample distribution.</p>
+</dd>
+</dl>
+</section>
+<section id="id6">
+<h3>Returns:<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>None</dt><dd><p>This function prints the KS statistic, p-value, and an interpretation of the test result.</p>
+</dd>
+</dl>
+</section>
+<section id="notes">
+<h3>Notes:<a class="headerlink" href="#notes" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Null hypothesis (H0): The two distributions are identical.</p></li>
+<li><p>A p-value &gt; 0.05 suggests that the two distributions are similar (fail to reject H0).</p></li>
+<li><p>A p-value ≤ 0.05 indicates that the two distributions are statistically different (reject H0).</p></li>
+<li><p>This test is non-parametric and sensitive to differences in both location and shape of the distributions.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.custom_imputation">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">custom_imputation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#omicspreprocessing.core.custom_imputation" title="Link to this definition">¶</a></dt>
+<dd><p>Custom imputation for triplicate samples in proteomics data.</p>
+<p>Rules:
+- If only one replicate out of three is expressed (non-NaN/non-zero), set all three replicates to zero.
+- If exactly two replicates are expressed and one is missing, impute the missing value with the median of the two expressed replicates.</p>
+<p>Assumptions:
+- Input DataFrame has samples as the index, with replicate identifiers ‘_1’, ‘_2’, ‘_3’ suffixing sample names.
+- Columns correspond to proteins.</p>
+<section id="id7">
+<h3>Parameters:<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>df<span class="classifier">pd.DataFrame</span></dt><dd><p>DataFrame with samples as index and proteins as columns. Sample names must include ‘_1’, ‘_2’, or ‘_3’ to identify replicates.</p>
+</dd>
+</dl>
+</section>
+<section id="id8">
+<h3>Returns:<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>pd.DataFrame</dt><dd><p>DataFrame with the same shape as input but with missing replicate values imputed or zeroed as per the rules.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.do_normalize_with_target_df">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">do_normalize_with_target_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z_scored_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">average_target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">std_target</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#omicspreprocessing.core.do_normalize_with_target_df" title="Link to this definition">¶</a></dt>
+<dd><p>Convert a z-scored value to the scale of a target distribution.</p>
+<p>This function takes a standardized (z-scored) value and transforms it to a value
+in a target distribution with a specified mean and standard deviation. It performs
+the inverse z-score transformation:</p>
+<blockquote>
+<div><p>normalized_value = mean_target + z * std_target</p>
+</div></blockquote>
+<section id="id9">
+<h3>Parameters:<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>z_scored_value<span class="classifier">float</span></dt><dd><p>The z-scored (standardized) value to be mapped to the target distribution.</p>
+</dd>
+<dt>average_target<span class="classifier">float</span></dt><dd><p>The mean (μ) of the target distribution.</p>
+</dd>
+<dt>std_target<span class="classifier">float</span></dt><dd><p>The standard deviation (σ) of the target distribution.</p>
+</dd>
+</dl>
+</section>
+<section id="id10">
+<h3>Returns:<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>float</dt><dd><p>The normalized value on the scale of the target distribution.</p>
+</dd>
+</dl>
+</section>
+<section id="example">
+<h3>Example:<a class="headerlink" href="#example" title="Link to this heading">¶</a></h3>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">do_normalize_with_target_df</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="go">122.5</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.do_shapiro_test">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">do_shapiro_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_to_do_test</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#omicspreprocessing.core.do_shapiro_test" title="Link to this definition">¶</a></dt>
+<dd><p>Perform the Shapiro-Wilk test for normality on a specific column of a DataFrame.</p>
+<p>This function applies the Shapiro-Wilk test to determine whether the values in the
+specified column are normally distributed. It is suitable for small sample sizes
+(n &lt; 5000) and prints both the test statistic and the interpretation based on
+a significance level of 0.05.</p>
+<section id="id11">
+<h3>Parameters:<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>df<span class="classifier">pd.DataFrame</span></dt><dd><p>The DataFrame containing the data to test.</p>
+</dd>
+<dt>column_to_do_test<span class="classifier">str</span></dt><dd><p>The name of the column in <cite>df</cite> on which to perform the Shapiro-Wilk test.</p>
+</dd>
+</dl>
+</section>
+<section id="id12">
+<h3>Returns:<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>None</dt><dd><p>This function prints the results to the console but does not return anything.</p>
+</dd>
+</dl>
+</section>
+<section id="id13">
+<h3>Notes:<a class="headerlink" href="#id13" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>The null hypothesis (H0) of the Shapiro-Wilk test is that the data is normally distributed.</p></li>
+<li><p>A p-value greater than 0.05 suggests normality (fail to reject H0).</p></li>
+<li><p>A p-value less than or equal to 0.05 suggests deviation from normality (reject H0).</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.do_smirnov_test">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">do_smirnov_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_to_do_test</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#omicspreprocessing.core.do_smirnov_test" title="Link to this definition">¶</a></dt>
+<dd><p>Perform the Kolmogorov-Smirnov test for normality on a specific column of a DataFrame.</p>
+<p>This function applies the one-sample Kolmogorov-Smirnov (K-S) test to compare the
+empirical distribution of the specified column with a standard normal distribution.</p>
+<section id="id14">
+<h3>Parameters:<a class="headerlink" href="#id14" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>df<span class="classifier">pd.DataFrame</span></dt><dd><p>The DataFrame containing the data to test.</p>
+</dd>
+<dt>column_to_do_test<span class="classifier">str</span></dt><dd><p>The name of the column in <cite>df</cite> to test for normality.</p>
+</dd>
+</dl>
+</section>
+<section id="id15">
+<h3>Returns:<a class="headerlink" href="#id15" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>None</dt><dd><p>The function prints the test statistic, p-value, and an interpretation based on
+a significance level of 0.05.</p>
+</dd>
+</dl>
+</section>
+<section id="id16">
+<h3>Notes:<a class="headerlink" href="#id16" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>The null hypothesis (H0) is that the data comes from a standard normal distribution.</p></li>
+<li><p>A p-value &gt; 0.05 suggests the data may be normally distributed (fail to reject H0).</p></li>
+<li><p>A p-value ≤ 0.05 indicates the data does not follow a normal distribution (reject H0).</p></li>
+<li><p>This test assumes the data is already standardized; otherwise, results may be misleading.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.get_cv_from_melted_df">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">get_cv_from_melted_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">melted_df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protein_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Proteins_names'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'value'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#omicspreprocessing.core.get_cv_from_melted_df" title="Link to this definition">¶</a></dt>
+<dd><p>Calculate the coefficient of variation (CV) for each protein from a long-format DataFrame.</p>
+<p>The function groups the data by protein names, computes the standard deviation and mean
+of the specified values, and then calculates the CV as std/mean.</p>
+<section id="id17">
+<h3>Parameters:<a class="headerlink" href="#id17" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>melted_df<span class="classifier">pd.DataFrame</span></dt><dd><p>A long-format DataFrame containing protein names and corresponding values.</p>
+</dd>
+<dt>protein_col<span class="classifier">str, optional</span></dt><dd><p>The column name containing protein identifiers. Default is ‘Proteins_names’.</p>
+</dd>
+<dt>value_col<span class="classifier">str, optional</span></dt><dd><p>The column name containing numeric values for which the CV is calculated. Default is ‘value’.</p>
+</dd>
+</dl>
+</section>
+<section id="id18">
+<h3>Returns:<a class="headerlink" href="#id18" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>pd.DataFrame</dt><dd><p>A DataFrame with columns: ‘std’, ‘mean’, ‘cv’, and ‘Gene names’ (protein identifiers).
+The ‘Gene names’ column is copied from the index.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.get_replicate_number">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">get_replicate_number</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Sample_name'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#omicspreprocessing.core.get_replicate_number" title="Link to this definition">¶</a></dt>
+<dd><p>Add a ‘replicate’ column to the DataFrame by assigning replicate numbers within groups.</p>
+<p>For each group defined by the unique values in the specified <cite>column_name</cite>, this function
+assigns sequential replicate numbers starting from 1. It adds a new column called ‘replicate’
+to the returned DataFrame.</p>
+<section id="id19">
+<h3>Parameters:<a class="headerlink" href="#id19" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>df<span class="classifier">pd.DataFrame</span></dt><dd><p>The input DataFrame containing the data to process.</p>
+</dd>
+<dt>column_name<span class="classifier">str, optional</span></dt><dd><p>The column to group by when determining replicates. Default is ‘Sample_name’.</p>
+</dd>
+</dl>
+</section>
+<section id="id20">
+<h3>Returns:<a class="headerlink" href="#id20" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>pd.DataFrame</dt><dd><p>A new DataFrame with an additional ‘replicate’ column indicating the replicate number
+within each group.</p>
+</dd>
+</dl>
+</section>
+<section id="raises">
+<h3>Raises:<a class="headerlink" href="#raises" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>ValueError</dt><dd><p>If the input is not a DataFrame or the specified column does not exist.</p>
+</dd>
+</dl>
+</section>
+<section id="id21">
+<h3>Notes:<a class="headerlink" href="#id21" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Replicate numbers start at 1.</p></li>
+<li><p>This function preserves the original DataFrame structure but returns a modified copy.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.get_t_across_all_proteins">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">get_t_across_all_proteins</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_1_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_2_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_Set_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Samplename2TMTchannel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#omicspreprocessing.core.get_t_across_all_proteins" title="Link to this definition">¶</a></dt>
+<dd><p>Perform t-tests across all proteins between two groups and return statistics with FDR correction.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.impute_normal_down_shift_distribution">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">impute_normal_down_shift_distribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unimputerd_df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_wise</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">downshift</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#omicspreprocessing.core.impute_normal_down_shift_distribution" title="Link to this definition">¶</a></dt>
+<dd><p>Perform missing value imputation by replacing NaNs with values drawn from a normal distribution
+shifted downward relative to the observed data distribution.</p>
+<p>The imputed distribution has mean shifted down by <cite>downshift</cite> standard deviations and scaled by <cite>width</cite>.</p>
+<section id="id22">
+<h3>Parameters:<a class="headerlink" href="#id22" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>unimputerd_df<span class="classifier">pd.DataFrame</span></dt><dd><p>DataFrame with missing values (NaNs) to be imputed.</p>
+</dd>
+<dt>column_wise<span class="classifier">bool, optional</span></dt><dd><p>If True, imputation is done separately for each column using that column’s statistics.
+If False, global mean and std across the entire DataFrame are used. Default is True.</p>
+</dd>
+<dt>width<span class="classifier">float, optional</span></dt><dd><p>Scale factor for the standard deviation of the imputed distribution relative to the sample std.</p>
+</dd>
+<dt>downshift<span class="classifier">float, optional</span></dt><dd><p>Number of standard deviations by which to downshift the mean of the imputed distribution.</p>
+</dd>
+<dt>seed<span class="classifier">int, optional</span></dt><dd><p>Random seed for reproducibility.</p>
+</dd>
+</dl>
+</section>
+<section id="id23">
+<h3>Returns:<a class="headerlink" href="#id23" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>pd.DataFrame</dt><dd><p>DataFrame with imputed values replacing NaNs.</p>
+</dd>
+</dl>
+</section>
+<section id="reference">
+<h3>Reference:<a class="headerlink" href="#reference" title="Link to this heading">¶</a></h3>
+<p>Imputation method inspired by:
+<a class="reference external" href="https://rdrr.io/github/jdreyf/jdcbioinfo/man/impute_normal.html#google_vignette">https://rdrr.io/github/jdreyf/jdcbioinfo/man/impute_normal.html#google_vignette</a></p>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.intersection">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">intersection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lst2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#omicspreprocessing.core.intersection" title="Link to this definition">¶</a></dt>
+<dd><p>Return the intersection of two lists as a list of unique elements present in both.</p>
+<section id="id24">
+<h3>Parameters:<a class="headerlink" href="#id24" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>lst1<span class="classifier">list</span></dt><dd><p>The first list.</p>
+</dd>
+<dt>lst2<span class="classifier">list</span></dt><dd><p>The second list.</p>
+</dd>
+</dl>
+</section>
+<section id="id25">
+<h3>Returns:<a class="headerlink" href="#id25" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>list</dt><dd><p>A list containing the unique elements common to both <cite>lst1</cite> and <cite>lst2</cite>.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.log2_transform_intensities">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">log2_transform_intensities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#omicspreprocessing.core.log2_transform_intensities" title="Link to this definition">¶</a></dt>
+<dd><p>Apply log2 transformation to intensity values in the DataFrame.</p>
+<p>Zeros are replaced with NaN before transformation to avoid -inf values.</p>
+<section id="id26">
+<h3>Parameters:<a class="headerlink" href="#id26" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>df<span class="classifier">pd.DataFrame</span></dt><dd><p>DataFrame containing intensity values (numeric).</p>
+</dd>
+</dl>
+</section>
+<section id="id27">
+<h3>Returns:<a class="headerlink" href="#id27" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>pd.DataFrame</dt><dd><p>DataFrame of the same shape with log2-transformed intensities. Zeros replaced by NaN.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.log2fold_change_calculator">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">log2fold_change_calculator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#omicspreprocessing.core.log2fold_change_calculator" title="Link to this definition">¶</a></dt>
+<dd><p>Calculate the log2 fold change of intensities column-wise relative to the column mean.</p>
+<p>For each value in the DataFrame, this function subtracts the mean of its column,
+resulting in log2 fold changes relative to the average intensity across all samples per column.</p>
+<section id="id28">
+<h3>Parameters:<a class="headerlink" href="#id28" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>df<span class="classifier">pd.DataFrame</span></dt><dd><p>A DataFrame of log-transformed intensity values with samples as columns.</p>
+</dd>
+</dl>
+</section>
+<section id="id29">
+<h3>Returns:<a class="headerlink" href="#id29" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>pd.DataFrame</dt><dd><p>A DataFrame of the same shape as <cite>df</cite>, containing log2 fold changes for each entry.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.log2fold_change_calculator_LOO">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">log2fold_change_calculator_LOO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#omicspreprocessing.core.log2fold_change_calculator_LOO" title="Link to this definition">¶</a></dt>
+<dd><p>Calculate leave-one-out (LOO) log2 fold changes column-wise relative to the mean excluding the current sample.</p>
+<p>For each sample (row), this function computes the mean of all other samples (excluding the current one)
+for each column, then calculates the difference between the sample’s value and this leave-one-out mean.</p>
+<section id="id30">
+<h3>Parameters:<a class="headerlink" href="#id30" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>df<span class="classifier">pd.DataFrame</span></dt><dd><p>A DataFrame of log-transformed intensity values with samples as rows and features as columns.</p>
+</dd>
+</dl>
+</section>
+<section id="id31">
+<h3>Returns:<a class="headerlink" href="#id31" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>pd.DataFrame</dt><dd><p>A DataFrame of the same shape as <cite>df</cite>, containing the LOO log2 fold changes.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.log_transform_intensities">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">log_transform_intensities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#omicspreprocessing.core.log_transform_intensities" title="Link to this definition">¶</a></dt>
+<dd><p>Apply log10 transformation to intensity values in the DataFrame.</p>
+<p>Zeros are replaced with NaN before transformation to avoid -inf values.</p>
+<section id="id32">
+<h3>Parameters:<a class="headerlink" href="#id32" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>df<span class="classifier">pd.DataFrame</span></dt><dd><p>DataFrame containing intensity values (must be numeric).</p>
+</dd>
+</dl>
+</section>
+<section id="id33">
+<h3>Returns:<a class="headerlink" href="#id33" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>pd.DataFrame</dt><dd><p>DataFrame of the same shape with log10-transformed intensities. Zeros replaced by NaN.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.make_cv_plot">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">make_cv_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#omicspreprocessing.core.make_cv_plot" title="Link to this definition">¶</a></dt>
+<dd><p>Create and display a cumulative distribution plot of the coefficient of variation (CV).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.median_centering">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">median_centering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#omicspreprocessing.core.median_centering" title="Link to this definition">¶</a></dt>
+<dd><p>Normalize samples by centering their distributions using median scaling.</p>
+<p>Each sample (column) is multiplied by a correction factor defined as the ratio
+of the average median of reference channels to the sample median. This aligns
+sample medians around the same central value.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.median_centering_ms1">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">median_centering_ms1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">merged_ms1_df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#omicspreprocessing.core.median_centering_ms1" title="Link to this definition">¶</a></dt>
+<dd><p>Normalize MS1 intensity samples by median centering with batch-specific correction factors.</p>
+<p>This function computes the median intensity per sample considering only peptides
+detected in more than 70% of samples to avoid bias from low-abundance peptides.
+Each sample’s intensities are then scaled by a correction factor so that all medians
+align to the global mean median.</p>
+<section id="id34">
+<h3>Parameters:<a class="headerlink" href="#id34" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>merged_ms1_df<span class="classifier">pd.DataFrame</span></dt><dd><p>DataFrame with proteins/peptides as rows and samples as columns containing intensity values.</p>
+</dd>
+</dl>
+</section>
+<section id="id35">
+<h3>Returns:<a class="headerlink" href="#id35" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>pd.DataFrame</dt><dd><p>Normalized DataFrame with the same shape as input, with each sample scaled by its correction factor.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.one_vs_all_t_test">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">one_vs_all_t_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputDF</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protein_peptide</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">favoriteentity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metaDataColumn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#omicspreprocessing.core.one_vs_all_t_test" title="Link to this definition">¶</a></dt>
+<dd><p>Perform a one-vs-all independent t-test for each protein/peptide comparing
+the favorite entity group against all other groups.</p>
+<section id="id36">
+<h3>Parameters:<a class="headerlink" href="#id36" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>inputDF<span class="classifier">pd.DataFrame</span></dt><dd><p>DataFrame with patients/samples as rows and proteins/peptides as columns.</p>
+</dd>
+<dt>protein_peptide<span class="classifier">List[str]</span></dt><dd><p>List of protein/peptide column names on which to perform the t-tests.</p>
+</dd>
+<dt>favoriteentity<span class="classifier">str</span></dt><dd><p>The group of interest (e.g., ‘chordoma’) to compare against all others.</p>
+</dd>
+<dt>metaDataColumn<span class="classifier">str</span></dt><dd><p>Column name in inputDF that contains group labels for each sample.</p>
+</dd>
+</dl>
+</section>
+<section id="id37">
+<h3>Returns:<a class="headerlink" href="#id37" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>pd.DataFrame</dt><dd><p>DataFrame containing t-statistics, p-values, group means, sample sizes,
+FDR-adjusted p-values, and direction (‘up’/’down’) indicating if favoriteentity
+group is higher or lower than other groups.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.plot_cv_per_condition">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">plot_cv_per_condition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Samplename2TMTchannel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_Set_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#omicspreprocessing.core.plot_cv_per_condition" title="Link to this definition">¶</a></dt>
+<dd><p>Plot cumulative histogram of coefficient of variation (CV) percentages for a given condition
+using Reporter intensity corrected channels.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.post_hoc_ANOVA">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">post_hoc_ANOVA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ANOVA_df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protein_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Brain</span> <span class="pre">region'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_adjust</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'fdr_bh'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#omicspreprocessing.core.post_hoc_ANOVA" title="Link to this definition">¶</a></dt>
+<dd><p>Perform post-hoc pairwise t-tests after ANOVA for multiple proteins.</p>
+<p>For each protein in <cite>protein_list</cite>, this function performs a post-hoc pairwise t-test
+using the specified grouping column in the <cite>ANOVA_df</cite> DataFrame, applying multiple
+testing correction as specified by <cite>p_adjust</cite>.</p>
+<section id="id38">
+<h3>Parameters:<a class="headerlink" href="#id38" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>ANOVA_df<span class="classifier">pd.DataFrame</span></dt><dd><p>DataFrame where rows are samples and columns are protein measurements.</p>
+</dd>
+<dt>protein_list<span class="classifier">list</span></dt><dd><p>List of protein column names in <cite>ANOVA_df</cite> to perform the post-hoc tests on.</p>
+</dd>
+<dt>group_col<span class="classifier">str, optional</span></dt><dd><p>Name of the metadata column in <cite>ANOVA_df</cite> used to group samples for testing.
+Default is <cite>‘Brain region’</cite>.</p>
+</dd>
+<dt>p_adjust<span class="classifier">str, optional</span></dt><dd><p>Method for p-value adjustment for multiple comparisons. Default is <cite>‘fdr_bh’</cite>
+(Benjamini-Hochberg false discovery rate).</p>
+</dd>
+</dl>
+</section>
+<section id="id39">
+<h3>Returns:<a class="headerlink" href="#id39" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>list of dict</dt><dd><p>A list where each element is a dictionary with keys:
+- <cite>‘protein’</cite>: the protein name,
+- <cite>‘post_hoc_res’</cite>: the DataFrame of adjusted p-values from the post-hoc test.</p>
+</dd>
+</dl>
+</section>
+<section id="id40">
+<h3>Notes:<a class="headerlink" href="#id40" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Requires <cite>sp.posthoc_ttest</cite> from the <cite>scikit-posthocs</cite> package.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.protein_remover_by_sparcity">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">protein_remover_by_sparcity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimum_samples_inside</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#omicspreprocessing.core.protein_remover_by_sparcity" title="Link to this definition">¶</a></dt>
+<dd><p>Remove proteins from the DataFrame based on sparsity threshold.</p>
+<p>Proteins (rows) with fewer than <cite>minimum_samples_inside</cite> non-NA values across samples (columns)
+are removed from the DataFrame.</p>
+<section id="id41">
+<h3>Parameters:<a class="headerlink" href="#id41" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>df<span class="classifier">pd.DataFrame</span></dt><dd><p>Input DataFrame with proteins as the index and samples as columns.</p>
+</dd>
+<dt>minimum_samples_inside<span class="classifier">int, optional</span></dt><dd><p>Minimum number of samples (columns) in which a protein must have non-NA values
+to be retained. Proteins with fewer non-NA samples are removed.
+Default is 20.</p>
+</dd>
+</dl>
+</section>
+<section id="id42">
+<h3>Returns:<a class="headerlink" href="#id42" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>pd.DataFrame</dt><dd><p>Filtered DataFrame containing only proteins meeting the sparsity criterion.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.raw_median_centering_normalization">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">raw_median_centering_normalization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">general_median</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#omicspreprocessing.core.raw_median_centering_normalization" title="Link to this definition">¶</a></dt>
+<dd><p>Perform column-wise median centering normalization on a DataFrame using an external reference median.</p>
+<p>This function normalizes each column of the input DataFrame by scaling its values so that
+the column’s median matches the specified <cite>general_median</cite>. This is useful when adjusting
+datasets to a common scale based on a known or reference distribution.</p>
+<section id="id43">
+<h3>Parameters:<a class="headerlink" href="#id43" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>df<span class="classifier">pd.DataFrame</span></dt><dd><p>A pandas DataFrame containing numerical data to normalize. It is assumed that the
+DataFrame is indexed and contains no non-numeric columns.</p>
+</dd>
+<dt>general_median<span class="classifier">float</span></dt><dd><p>The reference median value from another distribution that each column should be normalized to.</p>
+</dd>
+</dl>
+</section>
+<section id="id44">
+<h3>Returns:<a class="headerlink" href="#id44" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>pd.DataFrame</dt><dd><p>A new DataFrame of the same shape as <cite>df</cite> with normalized values such that the
+median of each column is approximately equal to <cite>general_median</cite>.</p>
+</dd>
+</dl>
+</section>
+<section id="id45">
+<h3>Notes:<a class="headerlink" href="#id45" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Columns containing NaN values will be normalized ignoring the NaNs in median computation.</p></li>
+<li><p>The index and column names of the original DataFrame are preserved.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.seaborn_volcano">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">seaborn_volcano</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">saving_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#omicspreprocessing.core.seaborn_volcano" title="Link to this definition">¶</a></dt>
+<dd><p>Create and save a volcano plot using seaborn.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.show_spent_time">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">show_spent_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#omicspreprocessing.core.show_spent_time" title="Link to this definition">¶</a></dt>
+<dd><p>Decorator to measure and display the execution time of a function.</p>
+<p>This decorator wraps any function and prints the time it took to execute,
+which can be helpful for performance monitoring or benchmarking.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.t_test">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">t_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#omicspreprocessing.core.t_test" title="Link to this definition">¶</a></dt>
+<dd><p>Perform an independent two-sample t-test between two numerical groups.</p>
+<section id="id46">
+<h3>Parameters:<a class="headerlink" href="#id46" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>x<span class="classifier">tuple of floats</span></dt><dd><p>First group of numerical observations.</p>
+</dd>
+<dt>y<span class="classifier">tuple of floats</span></dt><dd><p>Second group of numerical observations.</p>
+</dd>
+</dl>
+</section>
+<section id="id47">
+<h3>Returns:<a class="headerlink" href="#id47" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>t_stat<span class="classifier">float</span></dt><dd><p>The computed t-statistic.</p>
+</dd>
+<dt>p_value<span class="classifier">float</span></dt><dd><p>The two-tailed p-value for the test.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.univariate_ROC_analysis_by_CV_permutation">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">univariate_ROC_analysis_by_CV_permutation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pre</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">favoriteentity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kFold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repeats</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scores</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'scores'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'labels'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#omicspreprocessing.core.univariate_ROC_analysis_by_CV_permutation" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the stability percentage of ROC AUCs above a given threshold using repeated stratified k-fold cross-validation.</p>
+<section id="id48">
+<h3>Parameters:<a class="headerlink" href="#id48" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>pre<span class="classifier">pd.DataFrame</span></dt><dd><p>DataFrame containing prediction scores and true labels.
+Must include columns named as specified by <cite>scores</cite> and <cite>labels</cite>.</p>
+</dd>
+<dt>favoriteentity<span class="classifier">str</span></dt><dd><p>The label considered as the positive class.</p>
+</dd>
+<dt>kFold<span class="classifier">int, optional</span></dt><dd><p>Number of folds for cross-validation. Default is 5.</p>
+</dd>
+<dt>repeats<span class="classifier">int, optional</span></dt><dd><p>Number of repeated cross-validation runs. Default is 10.</p>
+</dd>
+<dt>threshold<span class="classifier">float, optional</span></dt><dd><p>Threshold for considering AUC as stable. Default is 0.5.</p>
+</dd>
+<dt>scores<span class="classifier">str, optional</span></dt><dd><p>Column name in <cite>pre</cite> containing the prediction scores. Default is ‘scores’.</p>
+</dd>
+<dt>labels<span class="classifier">str, optional</span></dt><dd><p>Column name in <cite>pre</cite> containing the true labels. Default is ‘labels’.</p>
+</dd>
+</dl>
+</section>
+<section id="id49">
+<h3>Returns:<a class="headerlink" href="#id49" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>float</dt><dd><p>Percentage of AUCs that are above <cite>threshold</cite> or below <cite>1 - threshold</cite> across all CV splits.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.unnest_proteingroups">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">unnest_proteingroups</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#omicspreprocessing.core.unnest_proteingroups" title="Link to this definition">¶</a></dt>
+<dd><p>Split multi-protein group entries in the DataFrame index (separated by ‘;’)
+into separate rows, duplicating associated data for each protein group.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="omicspreprocessing.core.volcanoplot">
+<span class="sig-prename descclassname"><span class="pre">omicspreprocessing.core.</span></span><span class="sig-name descname"><span class="pre">volcanoplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#omicspreprocessing.core.volcanoplot" title="Link to this definition">¶</a></dt>
+<dd><p>Create and optionally save an interactive volcano plot using Plotly.</p>
+</dd></dl>
+
+</section>
+<section id="module-omicspreprocessing">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-omicspreprocessing" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2025, Amirhossein Sakhteman
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">omicspreprocessing package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-omicspreprocessing.core">omicspreprocessing.core module</a><ul>
+<li><a class="reference internal" href="#omicspreprocessing.core.ParallelComputing"><code class="docutils literal notranslate"><span class="pre">ParallelComputing</span></code></a><ul>
+<li><a class="reference internal" href="#omicspreprocessing.core.ParallelComputing.get_result"><code class="docutils literal notranslate"><span class="pre">ParallelComputing.get_result()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.ParallelComputing.run_in_parallel"><code class="docutils literal notranslate"><span class="pre">ParallelComputing.run_in_parallel()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.ParallelComputing.set_func"><code class="docutils literal notranslate"><span class="pre">ParallelComputing.set_func()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.ParallelComputing.set_list"><code class="docutils literal notranslate"><span class="pre">ParallelComputing.set_list()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.ParallelComputing.set_num_cores"><code class="docutils literal notranslate"><span class="pre">ParallelComputing.set_num_cores()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.ParallelComputing.split_df_to_list_by_group"><code class="docutils literal notranslate"><span class="pre">ParallelComputing.split_df_to_list_by_group()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#omicspreprocessing.core.ROC_curve_analysis"><code class="docutils literal notranslate"><span class="pre">ROC_curve_analysis()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.anova_test"><code class="docutils literal notranslate"><span class="pre">anova_test()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.calculate_median_z_scores"><code class="docutils literal notranslate"><span class="pre">calculate_median_z_scores()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.check_path_exist"><code class="docutils literal notranslate"><span class="pre">check_path_exist()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.compare_two_distributions"><code class="docutils literal notranslate"><span class="pre">compare_two_distributions()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.custom_imputation"><code class="docutils literal notranslate"><span class="pre">custom_imputation()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.do_normalize_with_target_df"><code class="docutils literal notranslate"><span class="pre">do_normalize_with_target_df()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.do_shapiro_test"><code class="docutils literal notranslate"><span class="pre">do_shapiro_test()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.do_smirnov_test"><code class="docutils literal notranslate"><span class="pre">do_smirnov_test()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.get_cv_from_melted_df"><code class="docutils literal notranslate"><span class="pre">get_cv_from_melted_df()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.get_replicate_number"><code class="docutils literal notranslate"><span class="pre">get_replicate_number()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.get_t_across_all_proteins"><code class="docutils literal notranslate"><span class="pre">get_t_across_all_proteins()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.impute_normal_down_shift_distribution"><code class="docutils literal notranslate"><span class="pre">impute_normal_down_shift_distribution()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.intersection"><code class="docutils literal notranslate"><span class="pre">intersection()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.log2_transform_intensities"><code class="docutils literal notranslate"><span class="pre">log2_transform_intensities()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.log2fold_change_calculator"><code class="docutils literal notranslate"><span class="pre">log2fold_change_calculator()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.log2fold_change_calculator_LOO"><code class="docutils literal notranslate"><span class="pre">log2fold_change_calculator_LOO()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.log_transform_intensities"><code class="docutils literal notranslate"><span class="pre">log_transform_intensities()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.make_cv_plot"><code class="docutils literal notranslate"><span class="pre">make_cv_plot()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.median_centering"><code class="docutils literal notranslate"><span class="pre">median_centering()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.median_centering_ms1"><code class="docutils literal notranslate"><span class="pre">median_centering_ms1()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.one_vs_all_t_test"><code class="docutils literal notranslate"><span class="pre">one_vs_all_t_test()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.plot_cv_per_condition"><code class="docutils literal notranslate"><span class="pre">plot_cv_per_condition()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.post_hoc_ANOVA"><code class="docutils literal notranslate"><span class="pre">post_hoc_ANOVA()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.protein_remover_by_sparcity"><code class="docutils literal notranslate"><span class="pre">protein_remover_by_sparcity()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.raw_median_centering_normalization"><code class="docutils literal notranslate"><span class="pre">raw_median_centering_normalization()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.seaborn_volcano"><code class="docutils literal notranslate"><span class="pre">seaborn_volcano()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.show_spent_time"><code class="docutils literal notranslate"><span class="pre">show_spent_time()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.t_test"><code class="docutils literal notranslate"><span class="pre">t_test()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.univariate_ROC_analysis_by_CV_permutation"><code class="docutils literal notranslate"><span class="pre">univariate_ROC_analysis_by_CV_permutation()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.unnest_proteingroups"><code class="docutils literal notranslate"><span class="pre">unnest_proteingroups()</span></code></a></li>
+<li><a class="reference internal" href="#omicspreprocessing.core.volcanoplot"><code class="docutils literal notranslate"><span class="pre">volcanoplot()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-omicspreprocessing">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=01f34227"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=5fa4622c"></script>
+    </body>
+</html>
