@@ -52,29 +52,6 @@ def raw_median_centering_normalization(df: pd.DataFrame, general_median: float):
     rownames = df.index
 
     def normalize(temp: np.ndarray):
-        """
-        Normalize a 1D NumPy array by scaling it to match a target median.
-
-        This function computes the median of the input array (ignoring NaNs) and scales
-        the array so that its median becomes equal to the provided `general_median`
-        (from the outer scope). The normalization is performed by multiplying the array
-        by the ratio of `general_median` to the array's actual median.
-
-        Parameters:
-        ----------
-        temp : np.ndarray
-            A 1D NumPy array representing a column of values to normalize.
-
-        Returns:
-        -------
-        np.ndarray
-            The normalized array with its values scaled to align its median with `general_median`.
-
-        Notes:
-        -----
-        NaN values in the input array are ignored when calculating the median,
-        but remain in their positions in the output.
-        """
         temp_median = np.median(temp[~np.isnan(temp)])
         normalized_temp = temp * general_median / temp_median
         return normalized_temp
@@ -225,7 +202,7 @@ def do_normalize_with_target_df(z_scored_value, average_target, std_target):
         The mean (μ) of the target distribution.
 
     std_target : float
-        The standard deviation (σ) of the target distribution.
+        The standard deviation  of the target distribution.
 
     Returns:
     -------
@@ -234,7 +211,7 @@ def do_normalize_with_target_df(z_scored_value, average_target, std_target):
 
     Example:
     -------
-    >>> do_normalize_with_target_df(1.5, 100, 15)
+    do_normalize_with_target_df(1.5, 100, 15)
     122.5
     """
     return average_target + (z_scored_value * std_target)
@@ -296,36 +273,7 @@ def get_replicate_number(
 
 
 def check_path_exist(func):
-    """
-    Decorator to check if a file path exists before attempting to open it.
-
-    If the file exists, the decorated function is called with the given arguments,
-    and its result (usually a DataFrame) is returned. If the file does not exist,
-    a message is printed and `None` is returned. If the file exists but an error
-    occurs during reading, an error message is printed and a list with a string
-    error message is returned.
-
-    This decorator is intended for functions that take a file path as their first argument
-    and attempt to read it (e.g., with pandas).
-
-    Usage:
-    ------
-    @check_path_exist
-    def your_pandas_function(path):
-        return pd.read_csv(path)
-
-    Parameters:
-    -----------
-    func : callable
-        A function that takes a file path and returns a DataFrame or similar object.
-
-    Returns:
-    --------
-    callable
-        A wrapped version of the function with added path existence checking.
-    """
     import os
-
     def wrapper(path: str, *args, **kwargs):
         if os.path.exists(path):
             print("###")
@@ -666,7 +614,6 @@ def calculate_median_z_scores(df: pd.DataFrame):
     unimputerd_matrix[~np.isfinite(unimputerd_matrix)] = None
 
     def z_score_vector(temp: np.ndarray):
-        """Performs z_scores for a single vector"""
         temp_sd = np.nanstd(temp)
         temp_median = np.median(temp[~np.isnan(temp)])
         temp = (temp - temp_median) / temp_sd
