@@ -12,6 +12,14 @@ omicspreprocessing.core module
    :show-inheritance:
    :undoc-members:
 
+omicspreprocessing.parallel\_computing module
+---------------------------------------------
+
+.. automodule:: omicspreprocessing.parallel_computing
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
 Module contents
 ---------------
 
