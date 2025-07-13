@@ -34,3 +34,6 @@ unnest_proteingroups,
 make_cv_plot
                 )
 
+from .parallel_computing import (
+ParallelComputing
+        )
