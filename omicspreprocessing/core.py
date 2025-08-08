@@ -16,7 +16,7 @@ import scikit_posthocs as sp
 from sklearn import metrics
 from sklearn.model_selection import RepeatedStratifiedKFold
 
-
+import itertools
 
 def raw_median_centering_normalization(df: pd.DataFrame, general_median: float):
     """
@@ -1116,38 +1116,180 @@ def plot_cv_per_condition(
     plt.ylabel("Cumulative frequency")
 
 
-def seaborn_volcano(df: pd.DataFrame, saving_path: str) -> None:
+def seaborn_volcano(df,fc_thresh = 0.25,
+                     p_thresh = 0.05,
+                     xaxis=1,
+                     draw_dashed_lines = True,
+                     p_value_col = "p_values",
+                     foldchange_col = "delta_mean",
+                     gene_col = "Gene Names",
+                     title="Volcano Plot",
+                     where_to_save = None ):
     """
-    Create and save a volcano plot using seaborn.
+    Create a volcano plot using Seaborn to visualize statistical significance
+    (p-values) versus magnitude of change (fold change) for features such as genes or proteins.
 
-    Parameters:
-    -----------
-    df : pd.DataFrame
-        DataFrame containing at least the following columns:
-        - "delta_mean": log2 fold change values (x-axis).
-        - "pP_VALUE": -log10 transformed p-values or Q-values (y-axis).
-        - "type": categorical variable with values like 'up' or 'down' to color points.
+    The plot highlights three categories of points:
+      - "up": Fold change above `fc_thresh` and p-value ≤ `p_thresh`
+      - "down": Fold change below `-fc_thresh` and p-value ≤ `p_thresh`
+      - "ns": Not significant
 
-    saving_path : str
-        File path to save the plot image (e.g., 'volcano.png').
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        Input DataFrame containing at least the columns specified in
+        `p_value_col`, `foldchange_col`, and `gene_col`.
+    fc_thresh : float, default=0.25
+        Fold change threshold for significance classification.
+        Values greater than this (in absolute value) are considered significant if p-value passes.
+    p_thresh : float, default=0.05
+        P-value threshold for statistical significance.
+    xaxis : float, default=1
+        X-axis range limit for plotting threshold lines.
+    draw_dashed_lines : bool, default=True
+        Whether to draw dashed threshold lines for fold change and p-value cutoffs.
+    p_value_col : str, default="p_values"
+        Column name in `df` containing p-values.
+    foldchange_col : str, default="delta_mean"
+        Column name in `df` containing fold change values.
+    gene_col : str, default="Gene Names"
+        Column name in `df` containing gene/protein identifiers for labeling.
+    title : str, default="Volcano Plot"
+        Title for the plot.
+    where_to_save : str or None, default=None
+        File path to save the plot. If None, the plot is displayed instead.
 
-    Returns:
-    --------
+    Returns
+    -------
     None
-        Saves the plot to the specified path.
+        Displays or saves the volcano plot.
+
+    Notes
+    -----
+    - p-values are transformed to `-log10(p)` for the y-axis.
+    - Only points meeting significance thresholds are labeled.
+    - Color scheme:
+        - Red: "up" (significant positive fold change)
+        - Blue: "down" (significant negative fold change)
+        - Grey: "ns" (not significant)
     """
-    plt.figure(figsize=(10, 10))
+
+    
+    df = df.copy()
+    df["neg_log10_pval"] = -np.log10(df[p_value_col])
+
+    # Classify points
+    def classify(row):
+        if row[foldchange_col] > fc_thresh and row[p_value_col] <= p_thresh:
+            return "up"
+        elif row[foldchange_col] < -fc_thresh and row[p_value_col] <= p_thresh:
+            return "down"
+        else:
+            return "ns"
+
+    df["type"] = df.apply(classify, axis=1)
+
+    # --- Plot volcano ---
+    plt.figure(figsize=(10, 8))
     ax = sns.scatterplot(
         data=df,
-        x="delta_mean",
-        y="pP_VALUE",
+        x=foldchange_col,
+        y="neg_log10_pval",
         hue="type",
-        palette={"up": "red", "down": "blue"},
+        palette={"up": "red", "down": "blue", "ns": "grey"},
+        alpha=0.7
     )
-    ax.set(xlabel="Log2 Fold Change", ylabel="-log(Q-value)", xlim=(-4, 4), ylim=(0, 2))
+
+    # Thresholds
+    y_cutoff = -np.log10(p_thresh)
+    y_max = df["neg_log10_pval"].max()
+
+    # Horizontal p-value cutoff line (short)
+    if draw_dashed_lines:
+        ax.hlines(
+            y=y_cutoff,
+            xmin=-xaxis,
+            xmax=-fc_thresh,
+            colors="black",
+            linestyles="--"
+        )
+
+        ax.hlines(
+            y=y_cutoff,
+            xmin=fc_thresh,
+            xmax=xaxis,
+            colors="black",
+            linestyles="--"
+        )
+
+        # Vertical fold-change cutoff lines (short)
+        ax.vlines(
+            x=fc_thresh,
+            ymin=y_cutoff,
+            ymax=y_max,
+            colors="black",
+            linestyles="--"
+        )
+        ax.vlines(
+            x=-fc_thresh,
+            ymin=y_cutoff,
+            ymax=y_max,
+            colors="black",
+            linestyles="--"
+        )
+
+    # Label top 5 most significant points
+    top_labels = df[df.p_values <= p_thresh]
+    for _, row in top_labels.iterrows():
+        ax.text(
+            row[foldchange_col],
+            row["neg_log10_pval"],
+            row[gene_col],
+            fontsize=12,
+            ha="right"
+        )
+
+    ax.set(
+        xlabel="log2(Fold Change)",
+        ylabel=f"-log10{p_value_col}",
+        title=title
+    )
     plt.tight_layout()
-    plt.savefig(saving_path)
-    plt.close()
+    if where_to_save:
+        plt.savefig(where_to_save)
+    else:
+        plt.show()
+
+
+
+def make_pair_combinations(items):
+    """
+    Generate all unique pairwise combinations from a list of items.
+
+    Parameters
+    ----------
+    items : list
+        List of elements (e.g., strings, numbers) from which to create pairs.
+
+    Returns
+    -------
+    list of list
+        A list containing all possible unique pairs, where each pair is represented
+        as a two-element list. Order within each pair follows the original input order.
+
+    Examples
+    --------
+    >>> make_pair_combinations(["A", "B", "C"])
+    [['A', 'B'], ['A', 'C'], ['B', 'C']]
+
+    Notes
+    -----
+    - Uses `itertools.combinations`, so no repeated elements and no reversed duplicates.
+    - If `items` has fewer than 2 elements, the result will be an empty list.
+    """
+    pairs = list(itertools.combinations(items, 2))
+    return [list(x) for x in pairs]
+
 
 
 def median_centering(df: pd.DataFrame) -> pd.DataFrame:
