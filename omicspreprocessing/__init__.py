@@ -31,7 +31,8 @@ median_centering,
 volcanoplot,
 get_t_across_all_proteins,
 unnest_proteingroups,
-make_cv_plot
+make_cv_plot,
+make_pair_combinations
                 )
 
 from .parallel_computing import (

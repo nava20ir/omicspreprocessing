@@ -4,7 +4,7 @@ install_requires=["numpy", "pandas", "seaborn", "matplotlib", "plotly", "scipy",
 
 setup(
     name="omicspreprocessing",
-    version="0.1.1",
+    version="0.1.2",
     packages=find_packages(),
     install_requires=install_requires,
     author="Amirhossein Sakhteman",
